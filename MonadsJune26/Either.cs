@@ -20,7 +20,7 @@ public readonly struct Either<TLeft, TRight>
         _isLeft = false;
     }
 
-    public T Match<T>(Func<TLeft, T> onLeft, Func<TRight, T> onRight)
+    public TOut Match<TOut>(Func<TLeft, TOut> onLeft, Func<TRight, TOut> onRight)
         => _isLeft
             ? onLeft(_left)
             : _right != null
